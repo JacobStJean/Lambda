@@ -32,3 +32,13 @@ List<Client> clients = new()
 };
 
 // q1
+
+List<Client> ClientGatineau = clients.Where(c => c.Ville == "Gatineau").ToList();
+
+Action<Client> Afficher = Console.WriteLine;
+
+ClientGatineau.ForEach(Afficher);
+
+// q2
+
+List<String> PrenomClient = clients.Select(c => c.Prenom).ToList();
