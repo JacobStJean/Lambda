@@ -42,3 +42,35 @@ ClientGatineau.ForEach(Afficher);
 // q2
 
 List<String> PrenomClient = clients.Select(c => c.Prenom).ToList();
+
+// q3 
+
+PrenomClient.Sort();
+
+// q4 
+
+List<Client> ClientMontreal = clients.Where(c => c.Ville == "Montreal").ToList();
+
+ClientMontreal.Count();
+
+// q5 
+
+bool ClientQuebecExiste = clients.Any(c => c.Ville == "Québec");
+
+Console.WriteLine(ClientQuebecExiste);
+
+// q6
+
+Client PremierClientA = clients.First(c => c.Prenom.StartsWith("A"));
+
+// q7
+
+Client ClientId42 = clients.First(c => c.Id == 42);
+
+// q8 
+
+// q9
+
+
+
+
