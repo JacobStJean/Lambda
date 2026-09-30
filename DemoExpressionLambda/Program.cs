@@ -49,7 +49,7 @@ PrenomClient.Sort();
 
 // q4 
 
-List<Client> ClientMontreal = clients.Where(c => c.Ville == "Montreal").ToList();
+List<String> ClientMontreal = clients.Where(c => c.Ville == "Montreal").Select(c => c.Prenom).ToList();
 
 ClientMontreal.Count();
 
@@ -61,7 +61,7 @@ Console.WriteLine(ClientQuebecExiste);
 
 // q6
 
-Client PremierClientA = clients.First(c => c.Prenom.StartsWith("A"));
+Client PremierClientA = clients.First(c => c.Prenom.StartsWith("J"));
 
 // q7
 
@@ -69,8 +69,21 @@ Client ClientId42 = clients.First(c => c.Id == 42);
 
 // q8 
 
+List<String> VillesLCients = clients.Select(c =>c.Ville).Distinct().ToList();
+
+foreach (string v in VillesLCients)
+    Console.WriteLine(v);
+
 // q9
 
+List<string> ClientMontrealTrie = ClientMontreal
+    .OrderByDescending(prenom => prenom)
+    .ToList();
 
+// q10
 
+List<string> prenoms = clients
+    .Where(c => c.Prenom.Length > 5)
+    .Select(c => c.Prenom.ToUpper())
+    .ToList();
 
